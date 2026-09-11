@@ -1,0 +1,30 @@
+{
+  "NORMAL": {
+    "name": "Normal Operational Baseline",
+    "description": "All devices functioning within normal parameters."
+  },
+  "SINGLE_FAILURE": {
+    "name": "Single Device Failure (Edge-Router-02)",
+    "description": "Physical link/hardware outage on Edge-02 isolations."
+  },
+  "CORE_OVERLOAD": {
+    "name": "Central Core Router Traffic Overload",
+    "description": "High CPU and packet loss on Core-01 router."
+  },
+  "CASCADING_CONGESTION": {
+    "name": "Cascading Congestion (Dist-Router-01)",
+    "description": "Upstream microburst creating backpressure congestion."
+  },
+  "SECURITY_EVENT": {
+    "name": "Security Incident (Unregistered Host Exfiltration)",
+    "description": "Host-03 initiating abnormal egress traffic volume."
+  },
+  "LEGITIMATE_SURGE": {
+    "name": "Legitimate Traffic Surge (DB Sync)",
+    "description": "Scheduled database backup causing temporary spike."
+  },
+  "UNSAFE_REMEDIATION": {
+    "name": "Unsafe Remediation Scenario",
+    "description": "Central router fault where auto-reboot would crash whole network."
+  }
+}
