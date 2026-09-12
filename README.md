@@ -46,3 +46,65 @@ netops-ai/
 │
 ├── requirements.txt                # Python Dependencies
 └── README.md                       # Project Documentation & Guide
+
+---
+
+##System Architecture
+
+flowchart TD
+    subgraph Frontend ["Frontend Layer (Browser Dashboard)"]
+        UI["User Interface (index.html / style.css)"]
+        SIM_CTRL["Scenario Selector & Controls"]
+        TOPOLOGY_VIEW["Vis.js Network Topology Canvas"]
+        METRICS_VIEW["Chart.js Telemetry Charts & Metric Cards"]
+        PANELS["Reasoning & Decision Panels"]
+    end
+
+    subgraph API ["API & Routing Layer (Flask)"]
+        ROUTE_TOPOLOGY["GET /api/topology"]
+        ROUTE_PIPELINE["POST /api/process_scenario"]
+    end
+
+    subgraph Engine ["Backend Intelligence Engine (Python)"]
+        TWIN["Network Graph Model (NetworkX)"]
+        TELEM["Telemetry Generator (telemetry.py)"]
+        DETECT["Anomaly Detector (anomaly_detector.py)"]
+        RCA["Root Cause Analyzer (root_cause.py)"]
+        CLASSIFY["Security Classifier (security_classifier.py)"]
+        PLAN["Action Planner (action_planner.py)"]
+        SIM["What-If Simulator (simulator.py)"]
+        SAFETY["Safety Engine (safety_engine.py)"]
+        DECISION["Decision Engine (decision_engine.py)"]
+    end
+
+    subgraph Outcomes ["Closed-Loop Outcomes"]
+        AUTO["Auto-Execute State"]
+        HUMAN["Human Approval Required"]
+        REJECT["Reject Unsafe Action"]
+    end
+
+    SIM_CTRL -->|Triggers Selected Scenario| ROUTE_PIPELINE
+    ROUTE_TOPOLOGY -->|Fetches Baseline Topology| TWIN
+    TWIN -->|Returns Nodes & Edges| TOPOLOGY_VIEW
+
+    ROUTE_PIPELINE --> TELEM
+    TELEM -->|Raw Device Metrics| DETECT
+    DETECT -->|Identified Anomalies| RCA
+    RCA -->|Graph Dependencies & Root Cause| CLASSIFY
+    RCA --> PLAN
+    CLASSIFY -->|Operational vs Security Tag| PLAN
+    PLAN -->|Candidate Action| SIM
+    TELEM -->|Current Telemetry Clone| SIM
+    SIM -->|Simulated State & Risk Flag| SAFETY
+    PLAN -->|Action Meta| SAFETY
+    SAFETY -->|Safety Status & Policy Reason| DECISION
+    DECISION -->|Synthesized Result| ROUTE_PIPELINE
+
+    ROUTE_PIPELINE -->|JSON Response| UI
+    UI --> TOPOLOGY_VIEW
+    UI --> METRICS_VIEW
+    UI --> PANELS
+
+    DECISION -->|Passed Check| AUTO
+    DECISION -->|Requires Soc/Noc Review| HUMAN
+    DECISION -->|Policy Violation| REJECT
