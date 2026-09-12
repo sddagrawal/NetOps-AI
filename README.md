@@ -118,3 +118,91 @@ flowchart TD
     DECISION -->|Requires Soc/Noc Review| HUMAN
     DECISION -->|Policy Violation| REJECT
 ```
+---
+
+## 🚀 Setup & Execution Instructions
+
+This section provides instructions for running the Intelligent Network Operations System (NetOps-AI) using either the live cloud deployment or a local development environment.
+
+🌐 Live Cloud Execution (Render)
+
+The NetOps-AI platform is fully deployed and can be accessed directly through a web browser without requiring any local installation or configuration.
+
+Live Application URL: https://netops-ai-z203.onrender.com/
+
+Environment: Python 3.10+ WSGI container using Gunicorn
+
+Supported Browsers: Google Chrome, Mozilla Firefox, Microsoft Edge, and Safari
+
+Quick Start
+
+1. Open the "Live Application" (https://netops-ai-z203.onrender.com/) in a modern web browser.
+2. The interactive network topology and baseline telemetry dashboard will load automatically.
+3. Select an operational scenario from the scenario selector.
+4. Click "Inject Scenario & Execute Pipeline" to initiate the incident processing pipeline.
+5. Observe the system as it processes the selected scenario through its six-stage closed-loop pipeline.
+6. Review the detected issue, root cause, proposed remediation, simulation result, safety decision, and final system state displayed on the dashboard.
+
+💻 Local Setup
+
+The application can also be executed locally for development, testing, or evaluation.
+
+Prerequisites
+
+Ensure the following are installed on your system:
+
+- Python 3.8 or higher
+- Git
+- pip (Python package installer, included with Python)
+
+Step 1: Clone the Repository
+
+Open a terminal or command prompt and clone the project repository:
+
+git clone https://github.com/sddagrawal/NetOps-AI.git
+cd NetOps-AI
+
+Step 2: Create a Virtual Environment
+
+Creating a virtual environment keeps the project's Python dependencies isolated from other applications.
+
+Windows:
+
+python -m venv venv
+venv\Scripts\activate
+
+Linux / macOS:
+
+python3 -m venv venv
+source venv/bin/activate
+
+Step 3: Install Dependencies
+
+Upgrade pip and install all dependencies specified in "requirements.txt":
+
+pip install --upgrade pip
+pip install -r requirements.txt
+
+Step 4: Start the Application
+
+Start the Flask backend using:
+
+python backend/app.py
+
+Once the server starts successfully, the application will be available locally.
+
+Step 5: Access the Local Application
+
+Open a web browser and navigate to:
+
+http://localhost:5000
+
+The NetOps-AI dashboard should now be accessible locally.
+
+---
+
+## 🧪 Testing
+
+Detailed test cases, simulation results, final decisions, and expected system behavior are documented separately in ""tests/test-cases.md"" (tests/test-cases.md).
+
+The test documentation covers normal network operation, device failures, core-router overload, cascading congestion, potential security events, legitimate traffic surges, unsafe remediation, human-approval scenarios, and successful safe remediation.
