@@ -46,6 +46,7 @@ netops-ai/
 │
 ├── requirements.txt                # Python Dependencies
 └── README.md                       # Project Documentation & Guide
+```
 
 ---
 
