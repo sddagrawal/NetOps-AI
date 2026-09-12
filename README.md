@@ -51,6 +51,7 @@ netops-ai/
 
 ##System Architecture
 
+```mermaid
 flowchart TD
     subgraph Frontend ["Frontend Layer (Browser Dashboard)"]
         UI["User Interface (index.html / style.css)"]
@@ -108,3 +109,4 @@ flowchart TD
     DECISION -->|Passed Check| AUTO
     DECISION -->|Requires Soc/Noc Review| HUMAN
     DECISION -->|Policy Violation| REJECT
+```
