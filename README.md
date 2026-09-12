@@ -49,10 +49,17 @@ netops-ai/
 
 ---
 
-```mermaid
-##System Architecture
+## System Architecture
 
+```mermaid
 flowchart TD
+    subgraph Frontend ["Frontend Layer (Browser Dashboard)"]
+        UI["User Interface (index.html / style.css)"]
+        SIM_CTRL["Scenario Selector & Controls"]
+        TOPOLOGY_VIEW["Vis.js Network Topology Canvas"]
+        METRICS_VIEW["Chart.js Telemetry Charts & Metric Cards"]
+        PANELS["Reasoning & Decision Panels"]
+    end
     subgraph Frontend ["Frontend Layer (Browser Dashboard)"]
         UI["User Interface (index.html / style.css)"]
         SIM_CTRL["Scenario Selector & Controls"]
