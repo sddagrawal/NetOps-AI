@@ -49,9 +49,9 @@ netops-ai/
 
 ---
 
+```mermaid
 ##System Architecture
 
-```mermaid
 flowchart TD
     subgraph Frontend ["Frontend Layer (Browser Dashboard)"]
         UI["User Interface (index.html / style.css)"]
