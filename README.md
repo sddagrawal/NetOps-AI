@@ -206,3 +206,9 @@ The NetOps-AI dashboard should now be accessible locally.
 Detailed test cases, simulation results, final decisions, and expected system behavior are documented separately in ""tests/test-cases.md"" (tests/test-cases.md).
 
 The test documentation covers normal network operation, device failures, core-router overload, cascading congestion, potential security events, legitimate traffic surges, unsafe remediation, human-approval scenarios, and successful safe remediation.
+
+---
+
+## 📊 Project Presentation
+
+[View Project Presentation](https://1drv.ms/p/c/2C2FE632633AA86F/IQAEaqf8OE3sSL6jxqyfVqD6AWbsDBqncUQNTo2-_jcPUaQ?e=viRqOf)
